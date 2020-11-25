@@ -15,8 +15,8 @@ export default {
 };
 </script>
 
-<style lang="less">
-body {
-  background-color: red;
+<style lang="less" scoped>
+.v-application {
+  background: #2a2a2a;
 }
 </style>
