@@ -75,7 +75,7 @@ export default {
 
 <style lang="less">
 .avatar-image {
-  border-radius: 20px;
+  border-radius: 10px;
   width: 250px;
   height: 250px;
 }

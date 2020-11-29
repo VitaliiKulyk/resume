@@ -1,13 +1,13 @@
 <template>
   <v-container class="pa-0">
     <Profile class="pa-5" />
-    <AboutMe class="pa-5 my-8" />
-    <div class="d-flex flex-wrap my-8">
+    <AboutMe class="pa-5 my-4" />
+    <div class="d-flex flex-wrap my-4">
       <Education class="col-12 col-lg-6 pa-5" />
       <Languages class="col-12 col-lg-6 pa-5" />
     </div>
-    <Technologies class="pa-5 my-8" />
-    <EmployeeHistory class="pa-5 my-8" />
+    <Technologies class="pa-5 my-4" />
+    <EmployeeHistory class="pa-5 my-4" />
   </v-container>
 </template>
 
