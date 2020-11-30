@@ -1,13 +1,14 @@
 <template>
   <v-container class="pa-0">
-    <Profile class="pa-5" />
+    <Profile class="pa-5" id="about-me" />
     <AboutMe class="pa-5 my-4" />
     <div class="d-flex flex-wrap my-4">
-      <Education class="col-12 col-lg-6 pa-5" />
-      <Languages class="col-12 col-lg-6 pa-5" />
+      <Education class="col-12 col-md-6 pa-5" />
+      <Languages class="col-12 col-md-6 pa-5" />
     </div>
-    <Technologies class="pa-5 my-4" />
-    <EmployeeHistory class="pa-5 my-4" />
+    <Technologies class="pa-5 my-4" id="technologies" />
+    <EmployeeHistory class="pa-5 my-4" id="employment-history" />
+    <ProjectHistory class="pa-5 my-4" id="project-history" />
   </v-container>
 </template>
 
@@ -18,6 +19,7 @@ import Education from './Education';
 import Languages from './Languages';
 import Technologies from './Technologies';
 import EmployeeHistory from './EmployeeHistory';
+import ProjectHistory from './ProjectHistory';
 
 export default {
   components: {
@@ -26,7 +28,8 @@ export default {
     Education,
     Languages,
     Technologies,
-    EmployeeHistory
+    EmployeeHistory,
+    ProjectHistory
   }
 };
 </script>
