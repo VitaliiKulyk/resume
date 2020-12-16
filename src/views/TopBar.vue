@@ -28,6 +28,10 @@ export default {
       {
         text: 'Employment history',
         target: '#employment-history'
+      },
+      {
+        text: 'Projects',
+        target: '#project-history'
       }
     ]
   })

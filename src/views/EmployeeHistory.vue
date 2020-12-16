@@ -4,7 +4,7 @@
 
     <v-card
       tile
-      class="elevation-1 pa-3 my-2 history-card"
+      class="elevation-2 pa-3 my-2 history-card"
       color="#3b3b3b"
       v-for="(item, i) in history"
       :key="i"
@@ -15,7 +15,7 @@
       <v-card-title v-else class="py-0 my-0"> {{ item.companyName }} </v-card-title>
 
       <div v-for="(position, j) in item.positions" :key="j" class="my-3">
-        <v-card-title class="py-0 my-0"> {{ position.name }} </v-card-title>
+        <v-card-title class="py-0 my-0 positionName"> {{ position.name }} </v-card-title>
         <v-card-subtitle class="py-0 my-0"> {{ position.dates }} </v-card-subtitle>
       </div>
     </v-card>
@@ -75,6 +75,10 @@ export default {
   .link {
     text-decoration: none;
     color: inherit;
+  }
+
+  .positionName {
+    font-size: 1.1rem;
   }
 }
 </style>

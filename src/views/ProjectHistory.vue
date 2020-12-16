@@ -2,34 +2,32 @@
   <div class="d-flex flex-column parent-block">
     <div class="text-h5 mb-3">Favorite projects</div>
 
-    <div class="d-flex flex-row flex-wrap">
-      <div v-for="(item, i) in projects" :key="i" class="my-1 col-12 col-lg-6 pa-1">
-        <v-card tile class="elevation-1 pa-3 project-card" color="#3b3b3b">
-          <v-card-title class="py-0 my-0"> {{ item.title }} </v-card-title>
-          <v-card-text>
-            <router-link :to="item.link" target="_blank"> Link </router-link>
-            <div v-for="(text, j) in item.description" :key="j">{{ text }}</div>
-
-            <div class="d-flex flex-wrap">
-              <v-chip v-for="(tag, i) in item.tags" :key="i" class="ma-1" outlined label>
-                {{ tag }}
-              </v-chip>
-            </div>
-          </v-card-text>
-        </v-card>
+    <div class="grid">
+      <div class="grid-sizer" />
+      <div v-for="(item, i) in projects" :key="i" class="grid-item">
+        <div class="ma-1">
+          <Project :item="item" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Masonry from 'masonry-layout/dist/masonry.pkgd.js';
+import Project from '../components/Project';
+
 export default {
+  components: {
+    Project
+  },
   data: () => ({
     projects: [
       {
-        title: 'Bomb. Party Game.',
+        title: 'Bomb. Party Game',
         link: '//play.google.com/store/apps/details?id=com.bombgameandroid',
         description: [
+          'Personal project',
           'The android game initially made with React Native.',
           'The new version is written on Unity.',
           '175K+ downloads.'
@@ -38,29 +36,43 @@ export default {
         images: []
       },
       {
-        title: 'Bomb. Party Game.',
-        link: '//play.google.com/store/apps/details?id=com.bombgameandroid',
+        title: 'ClassWallet',
+        link: '//classwallet.com/',
         description: [
-          'The android game initially made with React Native.',
-          'The new version is written on Unity.',
-          '175K+ downloads.'
+          'A huge US service that allows teachers and schools to forget about paperwork and provides digital reimbursement and shopping system for the teaching sector.',
+          'Over 3,500 schools use ClassWallet to automate processes for transactions for over 135,000 teachers and principals.'
         ],
-        tags: ['React native', 'JavaScript', 'Unity', 'C#', 'Android', 'Spine'],
+        tags: ['React', 'JavaScript', 'Node.js', 'MongoDB', 'Redis', 'Backbone', 'AWS services'],
         images: []
       },
       {
-        title: 'Bomb. Party Game.',
-        link: '//play.google.com/store/apps/details?id=com.bombgameandroid',
+        title: 'Ariot',
+        link: '//ariot.io/',
         description: [
-          'The android game initially made with React Native.',
-          'The new version is written on Unity.',
-          '175K+ downloads.'
+          'Ariot is an AR (augmented reality) tool for building operators and construction workers.'
         ],
-        tags: ['React native', 'JavaScript', 'Unity', 'C#', 'Android', 'Spine'],
+        tags: ['JavaScript', 'React', 'Redux', 'Akita', 'D3.js ', 'Node.js', 'PostgreSQL'],
+        images: []
+      },
+      {
+        title: 'Neupart',
+        link: '//neupart.com/',
+        description: [
+          'Neupart provides Information Security Management System, Secure ISMS, allowing organizations to automate IT Governance, Risk, and Compliance management.',
+          'Neupart allows being compliant with ISO 27001 or EU Data Protection Regulation (GDPR).'
+        ],
+        tags: ['JavaScript', 'React', 'Redux', 'D3.js '],
         images: []
       }
     ]
-  })
+  }),
+  mounted() {
+    new Masonry('.grid', {
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      percentPosition: true
+    });
+  }
 };
 </script>
 
@@ -69,13 +81,15 @@ export default {
   background-color: #373737;
 }
 
-.project-card {
-  position: relative;
-  overflow: hidden;
+.grid-sizer,
+.grid-item {
+  width: 100%;
+}
 
-  .link {
-    text-decoration: none;
-    color: inherit;
+@media (min-width: 960px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
   }
 }
 </style>
